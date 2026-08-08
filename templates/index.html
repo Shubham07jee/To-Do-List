@@ -17,10 +17,50 @@
         </form>
 
     </div>
-
-
 </div>
 
+<div class="container my-3">
+    <div class="container2 my-3 rounded p-3">
+
+        {% if alltodos | length == 0 %}
+        <div class="alert alert-info" role="alert">
+            No tasks yet, Add one !
+        </div>
+
+        {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">sr no</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in allTodos %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{todo.title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
+                    <td>{{todo.Status}}</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-primary">Update</button>
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                        <button type="button" class="btn btn-outline-succes">Mark as completed</button>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        {%endif%}
+
+    </div>
+</div>
 
 
 

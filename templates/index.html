@@ -4,7 +4,7 @@
 <div class="container my-3">
     <div class="container2 my-3 rounded p-3">
         <h1>Add Task</h1>
-        <form>
+        <form action="/" method="POST">
             <div class="mb-3">
                 <label for="title class=" form-label">Task Title</label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp">
@@ -28,39 +28,47 @@
         </div>
 
         {% else %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">sr no</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for todo in allTodos %}
-                <tr>
-                    <th scope="row">{{loop.index}}</th>
-                    <td>{{todo.title}}</td>
-                    <td>{{todo.desc}}</td>
-                    <td>{{todo.date_created}}</td>
-                    <td>{{todo.Status}}</td>
-                    <td>
-                        <button type="button" class="btn btn-outline-primary">Update</button>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
-                        <button type="button" class="btn btn-outline-success">Mark as completed</button>
-                    </td>
-                </tr>
-                {% endfor %}
 
-            </tbody>
-        </table>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">sr no</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for todo in allTodos %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.desc}}</td>
+                        <td>{{todo.date_created}}</td>
+                        <td>{{todo.Status}}</td>
+                        <td>
+                            <div class="btns">
+                                <a href="/update/{{todo.sno}} type=" button" class="btn btn-outline-primary">Update</a>
+                                <a href="/delete/{{todo.sno}} type=" button" class="btn btn-outline-danger">Delete</a>
+                                <a href="/mark/{{todo.sno}} type=" button" class="btn btn-outline-success">Mark as
+                                    completed</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
         {%endif%}
 
     </div>
 </div>
+
+
 
 
 

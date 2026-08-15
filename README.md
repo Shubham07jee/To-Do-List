@@ -1,35 +1,32 @@
-Absolutely. Replace the **entire contents** of your current `README.md` with the following:
-
-````markdown
 # To-Do List Web Application
 
-A simple and responsive To-Do List web application built using **Python Flask**, **HTML**, **CSS**, **Bootstrap**, and **SQLite**.
+A simple To-Do List web application built using **Python Flask**, **HTML**, **CSS**, **Bootstrap**, and **SQLite**.
 
-This project allows users to manage their daily tasks by adding, viewing, updating, deleting, and marking tasks as completed. The application uses **SQLite** to store task data.
+The application allows users to create, view, update, delete, and mark tasks as completed. SQLite is used as the local database for storing task information.
 
 ## Features
 
-* Add new tasks with a title and description
-* View all added tasks
-* Update existing tasks
-* Delete tasks
-* Mark tasks as completed
-* Display task status
-* Display task creation time
-* Store tasks using SQLite database
-* Responsive design for smaller screens
-* Bootstrap-based user interface
-* Custom CSS styling
+- Add new tasks with a title and description
+- View all tasks
+- Update existing tasks
+- Delete tasks
+- Mark tasks as completed
+- Display task status
+- Display task creation time
+- Store task data using SQLite
+- Responsive user interface
+- Bootstrap-based styling
+- Custom CSS styling
 
 ## Technologies Used
 
-* Python
-* Flask
-* SQLite
-* HTML5
-* CSS3
-* Bootstrap 5
-* Jinja2
+- Python
+- Flask
+- SQLite
+- HTML5
+- CSS3
+- Bootstrap 5
+- Jinja2
 
 ## Project Structure
 
@@ -46,57 +43,63 @@ DEVCORE_TO_DO_LIST/
 │
 ├── app.py
 ├── database.py
-├── index1.html
 ├── .gitignore
 └── README.md
 ````
 
-> **Note:** `todos.db` is the SQLite database file used by the application. It is generated locally when the application initializes the database.
-
 ## Database
 
-The project uses **SQLite** to store To-Do tasks.
+This project uses **SQLite** as its database.
 
-### Database Table: `todos`
+The local database file is:
 
-| Column         | Data Type       | Constraint  |
-| -------------- | --------------- | ----------- |
-| `sno`          | INTEGER         | PRIMARY KEY |
-| `title`        | TEXT            | NOT NULL    |
-| `desc`         | TEXT            | —           |
-| `date_created` | TEXT / DATETIME | —           |
-| `status`       | TEXT            | —           |
+```text
+todos.db
+```
 
-The database is used to perform the following operations:
+The database contains the following tables:
 
-* Insert new tasks
-* Retrieve existing tasks
-* Update tasks
-* Delete tasks
-* Mark tasks as completed
+* `todos`
+* `users`
 
-## How It Works
+### `todos` Table
 
-The application follows this basic flow:
+| Column         | Data Type | Constraint                |
+| -------------- | --------- | ------------------------- |
+| `sno`          | INTEGER   | PRIMARY KEY AUTOINCREMENT |
+| `title`        | TEXT      | NOT NULL                  |
+| `desc`         | TEXT      | NOT NULL                  |
+| `date_created` | DATETIME  | —                         |
+| `status`       | TEXT      | —                         |
+
+The application performs the following database operations:
+
+* **Create** – Add a new task
+* **Read** – Display existing tasks
+* **Update** – Modify task information or status
+* **Delete** – Remove a task
+
+## Application Flow
 
 ```text
 User
   ↓
 HTML / Bootstrap Interface
   ↓
-Flask Application (app.py)
+Flask Application
   ↓
-Database Functions (database.py)
+Database Functions
   ↓
-SQLite Database (todos.db)
+SQLite Database
 ```
 
-Flask routes are used to perform different task operations:
+The Flask application handles task operations such as:
 
-* `/` → Add and display tasks
-* `/update/<sno>` → Update a task
-* `/delete/<sno>` → Delete a task
-* `/mark/<sno>` → Mark a task as completed
+* Adding tasks
+* Displaying tasks
+* Updating tasks
+* Deleting tasks
+* Marking tasks as completed
 
 ## How to Run the Project
 
@@ -106,10 +109,10 @@ Flask routes are used to perform different task operations:
 git clone https://github.com/Shubham07jee/To-Do-List-ShubhamC.git
 ```
 
-### 2. Open the project directory
+### 2. Enter the project directory
 
 ```bash
-cd DEVCORE_TO_DO_LIST
+cd To-Do-List-ShubhamC
 ```
 
 ### 3. Create a virtual environment
@@ -120,7 +123,7 @@ python3 -m venv venv
 
 ### 4. Activate the virtual environment
 
-On Linux/Ubuntu:
+On Ubuntu/Linux:
 
 ```bash
 source venv/bin/activate
@@ -146,24 +149,61 @@ Open your browser and visit:
 http://127.0.0.1:5000
 ```
 
+## Git and Database Files
+
+The SQLite database is used locally by the application.
+
+The following files are intentionally ignored by Git:
+
+```text
+*.db
+*.db-journal
+*.sqbpro
+```
+
+This prevents local database files and SQLite Browser project files from being uploaded to the repository.
+
+When the application runs on another computer, the SQLite database can be created locally by the application.
+
 ## Future Improvements
 
-Some possible improvements for the future are:
+Possible future improvements include:
 
-* Add user authentication
-* Add task categories
-* Add due dates
-* Add task filtering and searching
-* Improve task validation
-* Add priority levels
-* Add user-specific task management
-* Deploy the application online
+* User authentication
+* Task categories
+* Due dates
+* Task priorities
+* Task searching and filtering
+* Improved input validation
+* User-specific task management
+* Online deployment
 
 ## Author
 
 **Shubham Chaudhari**
 
-This project was created as part of the **DevCore learning/project task**.
+Developed as part of a **DevCore learning/project task**.
 
+````
+
+### One thing I would NOT do
+
+Don't put the actual binary contents of `todos.db` into the README. What you showed earlier:
+
+```text
+SQLite format 3...
+````
+
+is the **binary SQLite database**, not something that belongs in a README.
+
+Your current setup is actually good:
+
+```text
+todos.db       → local database
+*.db           → ignored by Git
+*.sqbpro       → ignored by Git
+database.py    → database logic tracked by Git
+README.md      → documentation tracked by Git
+```
 
 

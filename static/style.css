@@ -1,40 +1,35 @@
 h1.navbar-title {
+    color: #172b45;
     text-align: center;
     width: 100%;
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(204, 94, 42);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-body {
-    background-color: #E5E5F7;
-    opacity: 0.8    ;
-    background-image: radial-gradient(circle, #5bb9b2 1.2px, transparent 1.2px);
-    background-size: 15px 15px;
+body{
+background-color: #f5f4ef;
+opacity: 0.8;
+background-image: radial-gradient(circle, #2f4a6e 1.2px, transparent 1.2px);
+background-size: 15px 15px;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 .container2{
-    background-color: rgb(202, 172, 35);
-    border-radius: 20px;
-    color: blanchedalmond;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-
+    background-color: #233c5c;
+    color: #f5f4ef;
 }
-
-@media (max_width:768px){
-    .table-container{
-        overflow-x: scroll ;
-        -webkit-overflow-scrolling:touch ;
-    }
-    .btns{
-        display: grid;
-        gap: 2;
-        justify-content: center;
-        align-items:center ;
-        padding: 10px; ;
-    }
-    .btns a{
-        margin: 5px;
-    }
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .btns{
+    display: grid;
+    gap: 2;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .btns a{
+    margin: 5px;
+  }
 
 }

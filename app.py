@@ -11,6 +11,8 @@ from database import (
 
 app = Flask(__name__)
 
+init_db()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
